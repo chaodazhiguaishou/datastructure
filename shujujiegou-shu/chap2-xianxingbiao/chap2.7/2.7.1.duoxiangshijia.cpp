@@ -13,6 +13,10 @@ using namespace std;
 // 排序后结果:  	[[1.8, 5],[-2.5, 4],[-2.0, 3],[1.0,2],[6.0, 1], [-5.0, 0]]
 // 相加多项式:  	[[5.0, 5],[-2.5, 4],[1.0, 2],[5.0, 0]]
 
+// freopen(fname,"r",stdin);	//输入重定向到fname文件
+// freopen("abc.out","w",stdout);	//输出重定向到abc.out文件 
+// scanf("%lf%d",&c,&e); //%lf为浮点数double，scanf进行行处理
+
 struct PolyNode			//多项式单链表结点类型
 {  double coef;			//系数
    int exp;				//指数
@@ -50,10 +54,10 @@ void CreateList(char* fname)	//读文件采用尾插法建立多项式单链表
    PolyNode* s,*r;
    double c;
    int n,e;
-   scanf("%d",&n);
+   scanf("%d",&n); //%d为十进制有符号整数,首先扫描最高次数
    r=head;			//r始终指向尾结点,开始时指向头结点
    for (int i=0;i<n;i++)
-   {  scanf("%lf%d",&c,&e);
+   {  scanf("%lf%d",&c,&e); //%lf为浮点数double，scanf进行行处理
       s=new PolyNode(c,e);	//创建新结点s
       r->next=s;		//将结点s插入结点r之后
       r=s;
