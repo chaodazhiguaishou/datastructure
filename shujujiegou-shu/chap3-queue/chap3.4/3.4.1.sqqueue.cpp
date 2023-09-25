@@ -4,6 +4,7 @@
 using namespace std;
 
 //初始时置front和rear均为-1（front==rear），该顺序队的四要素如下：
+//队列是先进先出，从队尾进，从队首出。front代表队首
 // 队空条件：front==rear。
 // 队满（上溢出）条件：rear==MaxSize-1（因为每个元素进队都让rear增1，当rear到达最大下标时不能再增加。
 // 元素e进队操作：rear增1，将元素e放在该位置（进队的元素总是在尾部插入的）。

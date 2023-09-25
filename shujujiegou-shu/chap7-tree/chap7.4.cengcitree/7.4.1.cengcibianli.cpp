@@ -15,18 +15,20 @@ using namespace std;
 // 思路：先将根结点b进队，在队不空时循环：从队列中出队一个结点p，访问它；若它有左孩子结点，将左孩子结点进队；
 // 若它有左孩子结点，将左孩子结点进队。如此操作直到队空为止。
 
+//简而言之，保证队列里按照层次遍历的顺序
+
 class Solution
 {
 public:
 void LevelOrder(BTree& bt)		//二叉树的层次遍历
 {  
-        BTNode* p;
+    BTNode* p;
     queue<BTNode*> qu;			//定义一个队列
     qu.push(bt.r);			//根结点r进队
     while (!qu.empty())		//队不空时循环 
     {  
-        p=qu.front(); 
-        qu.pop();		//出队结点p 
+        p=qu.front();   //取队首元素
+        qu.pop();		//出队首元素p 
         cout << p->data;		//访问结点p
         if (p->lchild!=NULL)		//有左孩子时将其进队
             qu.push(p->lchild);
