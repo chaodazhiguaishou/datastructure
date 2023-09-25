@@ -33,7 +33,7 @@ void LevelOrder(BTree& bt)		//二叉树的层次遍历
         if (p->rchild!=NULL)		//有右孩子时将其进队
             qu.push(p->rchild);
    }
-};
+}
 };
 
 int main() {
