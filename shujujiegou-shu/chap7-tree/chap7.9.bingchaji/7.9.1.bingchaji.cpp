@@ -27,8 +27,8 @@ void Init()		//并查集初始化 时间复杂度为O(n)。
 
 int Find1(int x)		 //递归算法：并查集中查找x结点的根结点,时间复杂度为O(log2n)。
 {  
-    if (x!=parent[x])
-        parent[x]=Find1(parent[x]); //路径压缩
+    if (x!=parent[x])       //不等于自身说明自身在某个树上
+        parent[x]=Find1(parent[x]); //路径压缩，并未改变树的结构而是继续往上找根节点
     return parent[x];
 }
 
