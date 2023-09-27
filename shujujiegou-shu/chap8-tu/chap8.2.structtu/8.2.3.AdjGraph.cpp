@@ -18,6 +18,9 @@ using namespace std;
 
 // 有向图的邻接表头节点后面跟着是从该节点指出去的节点。
 
+const int MAXV=100;			//图中最多的顶点数
+const int INF=0x3f3f3f3f;		//用INF表示∞
+
 struct ArcNode			//边结点类型
 {  int adjvex;			//邻接点
    int weight;			//权值
@@ -29,8 +32,6 @@ struct HNode			//头结点类型
    ArcNode* firstarc;		//指向第一条边的边结点
 };
 
-const int MAXV=100;			//图中最多的顶点数
-const int INF=0x3f3f3f3f;		//用INF表示∞
 class AdjGraph				//图邻接表类
 {
 public:
@@ -61,11 +62,11 @@ void CreateAdjGraph(int a[][MAXV],int n,int e)
    this->n=n; this->e=e;			//置顶点数和边数
    for (int i=0;i<n;i++)			//检查邻接矩阵中每个元素
       for (int j=n-1;j>=0;j--)
-         if (a[i][j]!=0 && a[i][j]!=INF)	//存在一条边
+         if (a[i][j]!=0 && a[i][j]!=INF)	//第i行，代表起点i，存在一条边
          {  p=new ArcNode();			//创建一个结点p
-            p->adjvex=j;
+            p->adjvex=j;            //第j列，代表终点j，是临接点的值
             p->weight=a[i][j]; 
-            p->nextarc=adjlist[i].firstarc;	//采用头插法插入p
+            p->nextarc=adjlist[i].firstarc;	//采用头插法插入p，插入头节点数组第i个头节点侧边
             adjlist[i].firstarc=p;
          }
 }

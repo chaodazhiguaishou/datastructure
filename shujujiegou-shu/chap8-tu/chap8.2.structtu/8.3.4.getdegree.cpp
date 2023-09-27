@@ -1,6 +1,6 @@
 #include <iostream>
 #include <stdio.h>
-#include "8.2.3.linjiebiaotu.cpp"
+#include "8.2.3.AdjGraph.cpp"
 using namespace std;
 
 // 【例8.3】一个含有n个顶点e条边的图采用邻接表存储，设计以下算法：
